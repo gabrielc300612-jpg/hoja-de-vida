@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Portafolio profesional y hoja de vida de Gabriel C., estratega digital y diseñador de experiencias.">
+	<title>Gabriel C. | Estrategia digital & diseño</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--ink: #132a31;
+			--muted: #607078;
+			--paper: #f5f6f1;
+			--card: #ffffff;
+			--line: #dce2dc;
+			--orange: #e97643;
+			--orange-dark: #b9542b;
+			--mint: #cde9d8;
+			--yellow: #f3ce63;
+			--shadow: 0 22px 65px rgba(19, 42, 49, 0.10);
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: var(--paper);
+			font-family: "DM Sans", sans-serif;
+			line-height: 1.5;
+		}
+		a { color: inherit; text-decoration: none; }
+		button { font: inherit; }
+		.shell { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+
+		header {
+			padding: 24px 0;
+			position: relative;
+			z-index: 2;
+		}
+		.nav { display: flex; align-items: center; justify-content: space-between; }
+		.brand { display: flex; gap: 10px; align-items: center; font-family: "Space Grotesk", sans-serif; font-size: 1.05rem; font-weight: 700; }
+		.brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; color: var(--paper); background: var(--ink); font-size: .78rem; }
+		.nav-links { display: flex; gap: 32px; align-items: center; color: var(--muted); font-size: .88rem; font-weight: 600; }
+		.nav-links a { transition: color .2s ease; }
+		.nav-links a:hover { color: var(--orange-dark); }
+		.nav-cta { padding: 11px 18px; color: var(--paper); border-radius: 100px; background: var(--ink); }
+		.nav-cta:hover { color: white !important; background: var(--orange-dark); }
+
+		.hero { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 80px; min-height: 635px; padding: 70px 0 92px; }
+		.eyebrow { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 22px; color: var(--orange-dark); font-size: .76rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+		.eyebrow::before { content: ""; display: block; width: 29px; height: 2px; background: var(--orange); }
+		h1, h2, h3 { margin: 0; font-family: "Space Grotesk", sans-serif; line-height: 1.05; letter-spacing: -.045em; }
+		h1 { max-width: 650px; font-size: clamp(3.5rem, 7vw, 6.3rem); }
+		h1 span { color: var(--orange); }
+		.hero-copy { max-width: 505px; margin: 28px 0 34px; color: var(--muted); font-size: 1.1rem; }
+		.actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+		.button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 48px; padding: 0 20px; border: 1px solid var(--ink); border-radius: 100px; color: var(--paper); background: var(--ink); font-weight: 700; transition: transform .2s ease, background .2s ease; }
+		.button:hover { transform: translateY(-2px); background: var(--orange-dark); }
+		.button.secondary { color: var(--ink); background: transparent; border-color: var(--line); }
+		.button.secondary:hover { border-color: var(--ink); background: var(--card); }
+		.arrow { font-size: 1.15rem; }
+
+		.hero-visual { position: relative; min-height: 455px; }
+		.portrait-frame { position: absolute; right: 20px; top: 0; width: min(360px, 85%); aspect-ratio: .82; overflow: hidden; border-radius: 180px 180px 18px 18px; background: var(--mint); box-shadow: var(--shadow); transform: rotate(3deg); }
+		.portrait-frame img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.75); mix-blend-mode: multiply; }
+		.portrait-overlay { position: absolute; inset: 0; background: linear-gradient(145deg, transparent 45%, rgba(19, 42, 49, .22)); }
+		.sticker { position: absolute; left: 0; bottom: 80px; display: grid; place-items: center; width: 118px; height: 118px; padding: 18px; border-radius: 50%; color: var(--ink); background: var(--yellow); font-family: "Space Grotesk", sans-serif; font-size: .87rem; font-weight: 700; line-height: 1.15; text-align: center; transform: rotate(-12deg); }
+		.sticker::after { content: "✦"; position: absolute; right: -12px; top: 4px; font-size: 1.7rem; color: var(--orange); }
+		.available { position: absolute; right: 0; bottom: 25px; display: flex; align-items: center; gap: 8px; padding: 10px 13px; border: 1px solid rgba(19,42,49,.10); border-radius: 8px; color: var(--ink); background: rgba(255,255,255,.75); backdrop-filter: blur(8px); font-size: .75rem; font-weight: 700; }
+		.available i { width: 8px; height: 8px; border-radius: 50%; background: #4ba56f; }
+
+		.marquee { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--muted); }
+		.marquee-track { display: flex; gap: 34px; align-items: center; width: max-content; padding: 17px 0; font-family: "Space Grotesk", sans-serif; font-size: .79rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+		.marquee-track span:nth-child(even) { color: var(--orange); font-size: 1.1rem; }
+
+		section { padding: 115px 0; }
+		.section-head { display: flex; justify-content: space-between; align-items: end; gap: 35px; margin-bottom: 48px; }
+		.section-head h2 { max-width: 590px; font-size: clamp(2.2rem, 4vw, 3.6rem); }
+		.section-note { max-width: 260px; margin: 0; color: var(--muted); font-size: .91rem; }
+		.about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; align-items: start; }
+		.about-lead { font-size: 1.43rem; line-height: 1.35; }
+		.about-lead strong { color: var(--orange-dark); }
+		.facts { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); }
+		.fact { padding: 20px 0; border-bottom: 1px solid var(--line); }
+		.fact-label { display: block; margin-bottom: 6px; color: var(--muted); font-size: .73rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+		.fact-value { font-size: 1.05rem; font-weight: 600; }
+
+		.work-section { background: var(--ink); color: var(--paper); }
+		.work-section .eyebrow { color: var(--yellow); }
+		.work-section .eyebrow::before { background: var(--yellow); }
+		.work-section .section-note { color: #a6b5b4; }
+		.project-list { border-top: 1px solid #3b5053; }
+		.project { display: grid; grid-template-columns: 90px 1fr 1fr 40px; gap: 24px; align-items: center; padding: 28px 0; border-bottom: 1px solid #3b5053; }
+		.project-number { color: var(--yellow); font-family: "Space Grotesk", sans-serif; font-size: .9rem; }
+		.project h3 { font-size: 1.55rem; }
+		.project p { margin: 0; color: #a6b5b4; font-size: .9rem; }
+		.project-arrow { width: 36px; height: 36px; border: 1px solid #506467; border-radius: 50%; display: grid; place-items: center; color: var(--yellow); font-size: 1.2rem; transition: background .2s ease; }
+		.project:hover .project-arrow { color: var(--ink); background: var(--yellow); }
+
+		.experience-grid { display: grid; grid-template-columns: 1fr 1.7fr; gap: 90px; }
+		.experience-grid h2 { font-size: clamp(2.2rem, 4vw, 3.6rem); }
+		.timeline { border-top: 1px solid var(--line); }
+		.role { display: grid; grid-template-columns: 125px 1fr; gap: 30px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+		.role-date { color: var(--orange-dark); font-size: .79rem; font-weight: 700; }
+		.role h3 { margin-bottom: 7px; font-size: 1.18rem; letter-spacing: -.02em; }
+		.role p { margin: 0; color: var(--muted); font-size: .88rem; }
+		.role-company { display: block; margin-bottom: 5px; font-size: .79rem; font-weight: 700; }
+
+		.skills-section { padding-top: 30px; }
+		.skills-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+		.skill { min-height: 176px; padding: 28px; border: 1px solid var(--line); background: var(--card); }
+		.skill:nth-child(2) { background: var(--mint); }
+		.skill:nth-child(3) { background: var(--yellow); }
+		.skill:nth-child(4) { background: #e7ddd2; }
+		.skill h3 { margin-bottom: 20px; font-size: 1.25rem; letter-spacing: -.02em; }
+		.skill p { max-width: 330px; margin: 0; color: var(--muted); font-size: .87rem; }
+
+		.contact { position: relative; overflow: hidden; padding: 92px 0; color: var(--paper); background: var(--orange); }
+		.contact::after { content: "✳"; position: absolute; right: 8%; top: 17%; color: rgba(255,255,255,.2); font-size: 12rem; line-height: 1; }
+		.contact-inner { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: end; gap: 40px; }
+		.contact h2 { max-width: 650px; font-size: clamp(2.6rem, 6vw, 5.4rem); }
+		.contact .eyebrow { color: var(--ink); }
+		.contact .eyebrow::before { background: var(--ink); }
+		.contact-email { color: var(--ink); font-size: 1rem; font-weight: 700; }
+		footer { padding: 24px 0; color: var(--muted); font-size: .78rem; }
+		.footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+
+		@media (max-width: 800px) {
+			.shell { width: min(100% - 32px, 600px); }
+			.nav-links a:not(.nav-cta) { display: none; }
+			.hero { grid-template-columns: 1fr; gap: 30px; min-height: auto; padding: 55px 0 80px; }
+			h1 { font-size: clamp(3.35rem, 16vw, 5.4rem); }
+			.hero-visual { min-height: 410px; }
+			.portrait-frame { right: 9%; width: 70%; }
+			.sticker { left: 2%; bottom: 55px; }
+			.section-head, .contact-inner { display: block; }
+			.section-note { margin-top: 20px; }
+			section { padding: 78px 0; }
+			.about-grid, .experience-grid { grid-template-columns: 1fr; gap: 42px; }
+			.project { grid-template-columns: 45px 1fr 32px; gap: 13px; }
+			.project p { grid-column: 2 / 3; }
+			.skills-wrap { grid-template-columns: 1fr; }
+			.contact-email { display: inline-block; margin-top: 34px; }
+			.footer-inner { display: block; }
+			.footer-inner span { display: block; margin-top: 8px; }
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="shell nav">
+			<a class="brand" href="#inicio" aria-label="Volver al inicio"><span class="brand-mark">GC</span> Gabriel C.</a>
+			<nav class="nav-links" aria-label="Navegación principal">
+				<a href="#perfil">Perfil</a>
+				<a href="#experiencia">Experiencia</a>
+				<a href="#proyectos">Proyectos</a>
+				<a class="nav-cta" href="#contacto">Hablemos ↗</a>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<section class="shell hero" id="inicio">
+			<div>
+				<div class="eyebrow">Hola, soy Gabriel</div>
+				<h1>Ideas que se vuelven <span>experiencias.</span></h1>
+				<p class="hero-copy">Estratega digital y diseñador de productos con obsesión por lo simple, lo útil y lo que deja una buena impresión.</p>
+				<div class="actions">
+					<a class="button" href="#contacto">Conversemos <span class="arrow">↗</span></a>
+					<a class="button secondary" href="#experiencia">Ver trayectoria</a>
+				</div>
+			</div>
+			<div class="hero-visual" aria-label="Retrato profesional de Gabriel C.">
+				<div class="portrait-frame">
+					<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=85" alt="Retrato profesional">
+					<div class="portrait-overlay"></div>
+				</div>
+				<div class="sticker">Disponible para nuevos retos</div>
+				<div class="available"><i></i> Respondo en 24 horas</div>
+			</div>
+		</section>
+
+		<div class="marquee" aria-label="Especialidades">
+			<div class="marquee-track shell"><span>Estrategia</span><span>✦</span><span>Producto digital</span><span>✦</span><span>Dirección creativa</span><span>✦</span><span>Experiencia de usuario</span><span>✦</span></div>
+		</div>
+
+		<section class="shell" id="perfil">
+			<div class="section-head"><h2>Una mirada estratégica, manos de creador.</h2><p class="section-note">Trabajo entre la visión de negocio y los detalles que hacen que un producto se sienta correcto.</p></div>
+			<div class="about-grid">
+				<p class="about-lead">Creo que los mejores resultados aparecen cuando <strong>la claridad guía cada decisión.</strong> Mi trabajo conecta personas, tecnología y marcas con intención.</p>
+				<div class="facts">
+					<div class="fact"><span class="fact-label">Ubicación</span><span class="fact-value">Bogotá, Colombia</span></div>
+					<div class="fact"><span class="fact-label">Experiencia</span><span class="fact-value">+7 años</span></div>
+					<div class="fact"><span class="fact-label">Especialidad</span><span class="fact-value">Producto & marca</span></div>
+					<div class="fact"><span class="fact-label">Idiomas</span><span class="fact-value">Español · Inglés</span></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="work-section" id="proyectos">
+			<div class="shell">
+				<div class="section-head"><div><div class="eyebrow">Trabajo seleccionado</div><h2>Proyectos con propósito.</h2></div><p class="section-note">Una selección de productos y campañas que movieron la aguja.</p></div>
+				<div class="project-list">
+					<a class="project" href="#contacto"><span class="project-number">01 / 04</span><h3>Origen — plataforma de marca</h3><p>Identidad y ecosistema digital para una nueva generación de consumidores conscientes.</p><span class="project-arrow">↗</span></a>
+					<a class="project" href="#contacto"><span class="project-number">02 / 04</span><h3>Nexo — producto financiero</h3><p>Una experiencia más humana para entender, organizar y hacer crecer el dinero.</p><span class="project-arrow">↗</span></a>
+					<a class="project" href="#contacto"><span class="project-number">03 / 04</span><h3>Casa Norte — e-commerce</h3><p>Rediseño de conversión que convirtió navegar en descubrir y descubrir en elegir.</p><span class="project-arrow">↗</span></a>
+					<a class="project" href="#contacto"><span class="project-number">04 / 04</span><h3>Vértice — cultura organizacional</h3><p>Un sistema interno para conectar equipos, decisiones y objetivos compartidos.</p><span class="project-arrow">↗</span></a>
+				</div>
+			</div>
+		</section>
+
+		<section class="shell" id="experiencia">
+			<div class="experience-grid">
+				<div><div class="eyebrow">Experiencia</div><h2>El recorrido hasta aquí.</h2></div>
+				<div class="timeline">
+					<div class="role"><span class="role-date">2022 — HOY</span><div><span class="role-company">Norte Studio · Bogotá</span><h3>Lead de estrategia digital</h3><p>Lidero equipos multidisciplinarios para crear productos que combinan impacto comercial y valor para las personas.</p></div></div>
+					<div class="role"><span class="role-date">2019 — 2022</span><div><span class="role-company">Estudio Marea · Remoto</span><h3>Director de diseño</h3><p>Construí marcas y experiencias digitales para compañías en crecimiento en Latinoamérica.</p></div></div>
+					<div class="role"><span class="role-date">2017 — 2019</span><div><span class="role-company">Punto de partida · Bogotá</span><h3>Diseñador de producto</h3><p>Convertí problemas complejos en interfaces claras, útiles y fáciles de querer.</p></div></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="shell skills-section">
+			<div class="skills-wrap">
+				<div class="skill"><h3>01 / Pensamiento</h3><p>Investigación, estrategia, definición de producto y sistemas de marca.</p></div>
+				<div class="skill"><h3>02 / Dirección</h3><p>Visión, facilitación de equipos y decisiones que mantienen el foco.</p></div>
+				<div class="skill"><h3>03 / Creación</h3><p>UX/UI, prototipado, storytelling y diseño de experiencias memorables.</p></div>
+				<div class="skill"><h3>04 / Entrega</h3><p>De la primera conversación al último detalle, con ritmo y criterio.</p></div>
+			</div>
+		</section>
+
+		<section class="contact" id="contacto">
+			<div class="shell contact-inner"><div><div class="eyebrow">¿Tienes un reto?</div><h2>Hagamos algo que valga la pena.</h2></div><a class="contact-email" href="mailto:hola@gabrielc.co">hola@gabrielc.co ↗</a></div>
+		</section>
+	</main>
+
+	<footer><div class="shell footer-inner"><span>© 2024 Gabriel C. Todos los derechos reservados.</span><span>Diseñado con intención.</span></div></footer>
+</body>
+</html>
